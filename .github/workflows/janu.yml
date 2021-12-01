@@ -6,6 +6,10 @@ on:
         default: 'john-doe'
         required: false
         type: string
+    secrets:
+      token:
+        description: 'password'
+        required: true
   
 jobs:
   print-username:
@@ -14,3 +18,5 @@ jobs:
     steps:
       - name: Print the input name to STDOUT
         run: echo The username is ${{ github.event.inputs.username }}
+      - name: Print the input name to STDOUT
+        run: echo The username is ${{ github.event.secrets.token }}
